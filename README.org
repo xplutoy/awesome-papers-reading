@@ -2,9 +2,13 @@ title:      Awesome Papers Reading
 #+date:       [2024-04-14 Sun 16:40]
 #+filetags:   :note:
 
-工作后，阅读文献时间少了。记录一下，激励自己。
+工作后，阅读文献的时间少了。记录一下，激励自己。
 
 * 2024
+
+** [#B] [[https://arxiv.org/abs/1906.02506][Practical Deep Learning with Bayesian Principles]]
+
+这篇文章证实 naturalgradient forvariational inference(NGVI) 可以实际有效的用于训练深度神经网络。其主要贡献在于发现了 SGD 的梯度的更新公式与 NGVI 的更新公式很相似，然后可以把在深度神经网络的训练技巧，比如 batch normalisation（BN）、data augmentation (DA)、learning rate schedule、momentum and initialisation，迁移到 NGVI 的训练上来。这种 Variational Online Gauss-Newton (VOGN) 方法同时结合了 SGD 和 NGVI 各自的优点，在可扩展的基础上同时保留了贝叶斯原则的优点。
 
 ** [#B] [[https://arxiv.org/abs/2005.11401][Retrieval-Augmentved Generation for Knowledge-Intensive NLP Tasks]]
 
