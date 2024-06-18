@@ -1,1 +1,20 @@
+title:      Awesome Papers Reading
+#+date:       [2024-04-14 Sun 16:40]
+#+filetags:   :note:
 
+工作后，阅读文献时间少了。所以记录一下，激励自己。
+
+* 2024
+
+** [#B] Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
+
+预训练模型在“知识密集型”任务上仍有很多限制，其性能仍落后于“task-specific”模型。这篇文章探索了一种用于检索增强生成（RAG）的通用微调方法，如下图。 
+
+#+attr_org: :width 900px
+[[./imgs/20240618164121_rag.png]]
+
+整个模型概率表示如下：
+
+\[p_{\text{RAG-Token}}(y|x) \approx \prod_i^N\sum_{z\in\text{top-}k(p(\cdot|x))}p_\eta(z|x)p_\theta(y_i|x,z,y_{1:i-1})\] 
+
+由检索器 $p_{\eta}(z|x)$ 和 Seq-2-Seq 生成器 $p_{\theta}(y_{i}|x,z,y_{1:i-1})$ 构成。
