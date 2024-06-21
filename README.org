@@ -7,6 +7,13 @@
 
 * 2024
 
+** [#B] [[https://arxiv.org/abs/2203.11171][Self-Consistency Improves Chain of Thought Reasoning in Language Models]] :iclr:
+
+这篇文章在 CoT 的基础上发现复杂推理任务通常可以有多个推理路径，这些路径的推理都可以得到结果，但答案的正确性却有一定的自洽性（self-consistency）。因此只要让 LLM 多产生一些 CoT，然后从所有生成的 CoT 中选择“自洽性”最好的答案作为结果就可以显著提升模型的推理能力。
+
+#+attr_org: :width 900px
+[[file:imgs/20240621191628_sc_cot.png]]
+
 ** [#B] [[https://arxiv.org/abs/2201.11903][Chain-of-Thought Prompting Elicits Reasoning in Large Language Models]] :nips:
 
 提出了一种 CoT 的提示词技巧，通过在提示词中加入推理的中间过程来挖掘 LLM 的潜力。这种方法在算术推理、常识推理和符号推理等任务上比现有方法都更优异。
