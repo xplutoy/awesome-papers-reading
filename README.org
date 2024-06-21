@@ -41,12 +41,26 @@
 
 由检索器 $p_{\eta}(z|x)$ 和 Seq-2-Seq 生成器 $p_{\theta}(y_{i}|x,z,y_{1:i-1})$ 构成。
 
-** [#B] [[https://arxiv.org/abs/2005.14165][Language Models are Few-Shot Learners]]
+** [#B] [[https://arxiv.org/abs/2005.14165][Language Models are Few-Shot Learners]] :nips:
 
 1. 提出了 LLM 的 In-Context-Learning ，在 inference 阶段把在训练阶段学到的技能（模式识别等）应用于目标任务。
 2. LLM 的 In-Context-Learning 能力随模型增大而增强
 
 第一次听到 In-Context-Learning 时，感觉挺疑惑的，不用更新模型参数，只需提供一些样例，就可以让模型输出结果超越 Fine-Tuning 后的模型。
+
+** [#B] [[https://arxiv.org/pdf/2203.15556][Training Compute-Optimal Large Language Models]] :nips:
+
+给出了在预算 C 一定的情况下最优模型规模 N 和训练数据量 D 的近似扩展法则：
+
+\[N_{\mathrm{opt}}\approx C^a,D_{\mathrm{opt}}\approx C^b\]
+
+其首先通过控制变量实验来获得性能与模型规模以及训练数据量的关系：
+
+\[L(N,D)=E+\frac A{N^\alpha}+\frac B{D^\beta}\]
+
+然后在通过预算 C 的约束来优化上述目标，得出最优模型规模 N 和 训练数据量 D 与预算 C 的关系。 研究思路值得认真学习。
+
+直观一点，训练 LLM 的最优 Token/Param 比为：20/1 。不过最近又有很多新的研究。
 
 
 
