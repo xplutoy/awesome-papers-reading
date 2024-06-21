@@ -1,27 +1,32 @@
-title:      Awesome Papers Reading
-#+date:       [2024-04-14 Sun 16:40]
-#+filetags:   :note:
+#+title: Awesome Papers Reading
+#+date: [2024-04-14 Sun 16:40]
+#+filetags: :note:
+#+tags: nips iclr
 
 工作后，阅读文献的时间少了。记录一下，激励自己。
 
 * 2024
 
-** [#A] [[https://arxiv.org/abs/2210.03629][ReAct: Synergizing Reasoning and Acting in Language Models]]
+** [#B] [[https://arxiv.org/abs/2201.11903][Chain-of-Thought Prompting Elicits Reasoning in Large Language Models]] :nips:
+
+提出了一种 CoT 的提示词技巧，通过在提示词中加入推理的中间过程来挖掘 LLM 的潜力。这种方法在算术推理、常识推理和符号推理等任务上比现有方法都更优异。
+
+** [#A] [[https://arxiv.org/abs/2210.03629][ReAct: Synergizing Reasoning and Acting in Language Models]] :iclr:
 
 提出了一种基于提示词的新学习范式，协同语言模型中的推理和行动来解决一般任务。其基本思路是扩充智能代理（Agent）的动作空间（action space）： $\hat{\mathcal{A}}=\mathcal{A}\cup\mathcal{L}$ ，其中 $\mathcal{L}$ 是语言空间。语言空间中的一个动作 $\hat{a}_t\in\mathcal{L}$ 表示一步“推理”或者“思考”，因此不会影响外部环境，也不会触发外部观察的反馈（observation feedback）。它们的主要作用在于根据当前上下文 $C_{t}$ 来推理出有用的信息，并更新上下文 $c_{t+1}=(c_t,\hat{a}_t)$ 以支持下一步的动作或推理。
 
 这篇文章又刷新了我对 LLM 能力的认知边界。用 LLM 作为推理引擎的决策智能体将会成为以后的趋势。
 
-** [#B] [[https://arxiv.org/abs/1906.02506][Practical Deep Learning with Bayesian Principles]]
+** [#B] [[https://arxiv.org/abs/1906.02506][Practical Deep Learning with Bayesian Principles]] :nips:
 
 这篇文章证实 naturalgradient forvariational inference(NGVI) 可以实际有效的用于训练深度神经网络。其主要贡献在于发现了 SGD 和 NGVI 两者的梯度更新公式很相似，然后可以把在深度神经网络的优化技巧，比如 batch normalisation（BN）、data augmentation (DA)、learning rate schedule、momentum and initialisation，迁移到 NGVI 的训练上来。这种 Variational Online Gauss-Newton (VOGN) 方法在保证一定可扩展的基础上同时保留了贝叶斯原则的很多优点。
 
-** [#B] [[https://arxiv.org/abs/2005.11401][Retrieval-Augmentved Generation for Knowledge-Intensive NLP Tasks]]
+** [#B] [[https://arxiv.org/abs/2005.11401][Retrieval-Augmentved Generation for Knowledge-Intensive NLP Tasks]] :nips:
 
 预训练模型在“知识密集型”任务上仍有很多限制，其性能仍落后于“task-specific”模型。针对该问题，这篇文章探索了一种用于检索增强生成（RAG）的通用微调方法。结构如下图：
 
 #+attr_org: :width 900px
-[[./imgs/20240618164121_rag.png]]
+[[file:./imgs/20240618164121_rag.png]]
 
 整个模型概率表示如下：
 
