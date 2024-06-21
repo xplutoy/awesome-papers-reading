@@ -40,3 +40,13 @@
 \[p_{\text{RAG-Token}}(y|x) \approx \prod_i^N\sum_{z\in\text{top-}k(p(\cdot|x))}p_\eta(z|x)p_\theta(y_i|x,z,y_{1:i-1})\]
 
 由检索器 $p_{\eta}(z|x)$ 和 Seq-2-Seq 生成器 $p_{\theta}(y_{i}|x,z,y_{1:i-1})$ 构成。
+
+** [#B] [[https://arxiv.org/abs/2005.14165][Language Models are Few-Shot Learners]]
+
+1. 提出了 LLM 的 In-Context-Learning ，在 inference 阶段把在训练阶段学到的技能（模式识别等）应用于目标任务。
+2. LLM 的 In-Context-Learning 能力随模型增大而增强
+
+第一次听到 In-Context-Learning 时，感觉挺疑惑的，不用更新模型参数，只需提供一些样例，就可以让模型输出结果超越 Fine-Tuning 后的模型。
+
+
+
