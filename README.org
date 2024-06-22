@@ -7,6 +7,8 @@
 
 * 2024
 
+** [#C] [[https://arxiv.org/abs/2302.11382][A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT]]
+
 ** [#B] [[https://arxiv.org/abs/2203.11171][Self-Consistency Improves Chain of Thought Reasoning in Language Models]] :iclr:
 
 这篇文章在 CoT 的基础上发现复杂推理任务通常可以有多个推理路径，这些路径的推理都可以得到结果，但答案的正确性却有一定的自洽性（self-consistency）。因此只要让 LLM 多产生一些 CoT，然后从所有生成的 CoT 中选择“自洽性”最好的答案作为结果就可以显著提升模型的推理能力。
