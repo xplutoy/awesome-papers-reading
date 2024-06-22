@@ -7,6 +7,10 @@
 
 * 2024
 
+** [#A] [[https://arxiv.org/abs/1806.04854][Fast and Scalable Bayesian Deep Learning by Weight-Perturbation in Adam]]
+
+一篇信息量很大的贝叶斯深度学习的论文。其把 Natural-Gradient VI （NGVI）的梯度更新公式规约为一种 Adam-like 的梯度更新公式，这样就可以在当前 adam 代码实现中做很小的修改来实现深度网络的 uncertainty computation。不过，这种方法只能针对 Gaussian mean-field VI 。
+
 ** [#C] [[https://arxiv.org/abs/2302.11382][A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT]]
 
 ** [#B] [[https://arxiv.org/abs/2203.11171][Self-Consistency Improves Chain of Thought Reasoning in Language Models]] :iclr:
