@@ -7,9 +7,31 @@
 
 * 2024
 
+** [#A] [[https://lilianweng.github.io/posts/2022-02-20-active-learning/][Learning with not Enough Data Part 2: Active Learning]]
+
+非常全面的关于深度主动学习最近研究的总结博文。
+
+** [#A] [[https://lilianweng.github.io/posts/2021-12-05-semi-supervised/][Learning with not Enough Data Part 1: Semi-Supervised Learning]]
+
+非常全面的关于半监督学习最近研究的总结性博文。下面摘录一些有意思的知识点。
+
+这些半监督学习中用到的一些假设：
+
+- Smoothness Assumptions :: 如果特征空间相近的两个点，其对应的标签也相近。
+- Cluster Assumptions :: 特征空间有稠密区和稀疏区，稠密区的点自然形成簇，同一簇的样本具有相同的标签。
+- Low-density Separation Assumptions :: 类别之间的决策边界往往位于稀疏、低密度区域。
+- Manifold Assumptions :: 高维数据往往位于低维流形上。
+
+整篇文章介绍了四大类半监督方法：Consistency Regularization、Pseudo Labeling、Pseudo Labeling with Consistency Regularization 和 Combined with Powerful Pre-Training 。
+
+
+** [#B] [[https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/][Prompt Engineering]]
+
+非常全面的关于提示工程最近研究的总结性博文。
+
 ** [#A] [[https://lilianweng.github.io/posts/2023-06-23-agent/][LLM Powered Autonomous Agents]]
 
-一篇非常全面的关于智能代理最近研究的总结性博文，下面是一点摘录。
+非常全面的关于智能代理最近研究的总结性博文，下面是一些有意思的摘录。
 
 智能代理系统概览：
 #+attr_org: :width 1200px
