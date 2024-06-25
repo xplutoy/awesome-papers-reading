@@ -82,6 +82,10 @@
 
 ** Active Learning
 
+*** [#A] [[https://openreview.net/forum?id=IVESH65r0Ar][A Simple Yet Powerful Deep Active Learning With Snapshots Ensembles]]
+
+简单的方法，让人惊讶的效果，全面细致的写作，非常好的一篇关于深度主动学习的论文。
+
 *** [#B] Active learning in materials science with emphasis on adaptive sampling using uncertainties for targeted design
 
 *** [#B] [[https://lilianweng.github.io/posts/2022-04-15-data-gen/][Learning with not Enough Data Part 3: Data Generation]]
@@ -146,6 +150,17 @@
 总结：一篇非常不错的用机器学习做材料发现的论文，结合了当前人工智能许多前沿技术，如主动学习，物理信息网络，生成模型等。
 
 ** Bayesian Method
+
+*** [#B] [[https://arxiv.org/abs/1506.02157][Dropout as a Bayesian Approximation: Appendix]]
+
+*** [#A] [[https://arxiv.org/abs/1506.02142][Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning]]
+
+简单的方法，坚实的理论基础。作者证明了 Dropout 深度网络的训练等价于深度高斯过程的近似贝叶斯推断。因此可以在 Dropout 上进行廉价的“不确定性”估计。具体而言，即在测试阶段，把同一个 X 多次输入训练好的 Dropout 网络，就可以得到输出 Y 的一个分布，如下图所示：
+
+#+attr_org: :width 900px
+[[file:imgs/20240626000058_mc-dropout.png]]
+
+论文中的数学比较繁琐，这篇文章 [[https://medium.com/@ciaranbench/monte-carlo-dropout-a-practical-guide-4b4dc18014b5][Monte Carlo Dropout: a practical guide]] 是对其的一个通俗解读。
 
 *** [#A] [[https://arxiv.org/abs/1806.04854][Fast and Scalable Bayesian Deep Learning by Weight-Perturbation in Adam]]
 
