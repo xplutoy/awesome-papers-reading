@@ -7,70 +7,16 @@
 
 * 2024
 
-** [#A] [[https://lilianweng.github.io/posts/2022-02-20-active-learning/][Learning with not Enough Data Part 2: Active Learning]]
+** LLM
 
-非常全面的关于深度主动学习最近研究的总结博文。
+*** [#B] [[https://arxiv.org/abs/2005.14165][Language Models are Few-Shot Learners]] :nips:
 
-** [#A] [[https://lilianweng.github.io/posts/2021-12-05-semi-supervised/][Learning with not Enough Data Part 1: Semi-Supervised Learning]]
+1. 提出了 LLM 的 In-Context-Learning ，在 inference 阶段把在训练阶段学到的技能（模式识别等）应用于目标任务。
+2. LLM 的 In-Context-Learning 能力随模型增大而增强
 
-非常全面的关于半监督学习最近研究的总结性博文。下面摘录一些有意思的知识点。
+第一次听到 In-Context-Learning 时，感觉挺疑惑的，不用更新模型参数，只需提供一些样例，就可以让模型输出结果超越 Fine-Tuning 后的模型。
 
-这些半监督学习中用到的一些假设：
-
-- Smoothness Assumptions :: 如果特征空间相近的两个点，其对应的标签也相近。
-- Cluster Assumptions :: 特征空间有稠密区和稀疏区，稠密区的点自然形成簇，同一簇的样本具有相同的标签。
-- Low-density Separation Assumptions :: 类别之间的决策边界往往位于稀疏、低密度区域。
-- Manifold Assumptions :: 高维数据往往位于低维流形上。
-
-整篇文章介绍了四大类半监督方法：Consistency Regularization、Pseudo Labeling、Pseudo Labeling with Consistency Regularization 和 Combined with Powerful Pre-Training 。
-
-
-** [#B] [[https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/][Prompt Engineering]]
-
-非常全面的关于提示工程最近研究的总结性博文。
-
-** [#A] [[https://lilianweng.github.io/posts/2023-06-23-agent/][LLM Powered Autonomous Agents]]
-
-非常全面的关于智能代理最近研究的总结性博文，下面是一些有意思的摘录。
-
-智能代理系统概览：
-#+attr_org: :width 1200px
-[[file:imgs/20240623164128_agent-overview.png]]
-
-人脑的记忆系统与 LLM 在中的类似对应物：
-
-#+attr_org: :width 1000px
-[[file:imgs/20240623170328_memory.png]]
-
-
-** [#A] [[https://arxiv.org/abs/1806.04854][Fast and Scalable Bayesian Deep Learning by Weight-Perturbation in Adam]]
-
-一篇信息量很大的贝叶斯深度学习的论文。其把 Natural-Gradient VI （NGVI）的梯度更新公式规约为一种 Adam-like 的梯度更新公式，这样就可以在当前 adam 代码实现中做很小的修改来实现深度网络的 uncertainty computation。不过，这种方法只能针对 Gaussian mean-field VI 。
-
-** [#C] [[https://arxiv.org/abs/2302.11382][A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT]]
-
-** [#B] [[https://arxiv.org/abs/2203.11171][Self-Consistency Improves Chain of Thought Reasoning in Language Models]] :iclr:
-
-这篇文章在 CoT 的基础上发现复杂推理任务通常可以有多个推理路径，这些路径的推理都可以得到结果，但答案的正确性却有一定的自洽性（self-consistency）。因此只要让 LLM 多产生一些 CoT，然后从所有生成的 CoT 中选择“自洽性”最好的答案作为结果就可以显著提升模型的推理能力。
-
-#+attr_org: :width 900px
-[[file:imgs/20240621191628_sc_cot.png]]
-
-** [#B] [[https://arxiv.org/abs/2201.11903][Chain-of-Thought Prompting Elicits Reasoning in Large Language Models]] :nips:
-
-提出了一种 CoT 的提示词技巧，通过在提示词中加入推理的中间过程来挖掘 LLM 的潜力。这种方法在算术推理、常识推理和符号推理等任务上比现有方法都更优异。
-
-** [#A] [[https://arxiv.org/abs/2210.03629][ReAct: Synergizing Reasoning and Acting in Language Models]] :iclr:
-
-提出了一种基于提示词的新学习范式，协同语言模型中的推理和行动来解决一般任务。其基本思路是扩充智能代理（Agent）的动作空间（action space）： $\hat{\mathcal{A}}=\mathcal{A}\cup\mathcal{L}$ ，其中 $\mathcal{L}$ 是语言空间。语言空间中的一个动作 $\hat{a}_t\in\mathcal{L}$ 表示一步“推理”或者“思考”，因此不会影响外部环境，也不会触发外部观察的反馈（observation feedback）。它们的主要作用在于根据当前上下文 $C_{t}$ 来推理出有用的信息，并更新上下文 $c_{t+1}=(c_t,\hat{a}_t)$ 以支持下一步的动作或推理。
-
-这篇文章又刷新了我对 LLM 能力的认知边界。用 LLM 作为推理引擎的决策智能体将会成为以后的趋势。
-
-** [#B] [[https://arxiv.org/abs/1906.02506][Practical Deep Learning with Bayesian Principles]] :nips:
-
-这篇文章证实 naturalgradient forvariational inference(NGVI) 可以实际有效的用于训练深度神经网络。其主要贡献在于发现了 SGD 和 NGVI 两者的梯度更新公式很相似，然后可以把在深度神经网络的优化技巧，比如 batch normalisation（BN）、data augmentation (DA)、learning rate schedule、momentum and initialisation，迁移到 NGVI 的训练上来。这种 Variational Online Gauss-Newton (VOGN) 方法在保证一定可扩展的基础上同时保留了贝叶斯原则的很多优点。
-
-** [#B] [[https://arxiv.org/abs/2005.11401][Retrieval-Augmentved Generation for Knowledge-Intensive NLP Tasks]] :nips:
+*** [#B] [[https://arxiv.org/abs/2005.11401][Retrieval-Augmentved Generation for Knowledge-Intensive NLP Tasks]] :nips:
 
 预训练模型在“知识密集型”任务上仍有很多限制，其性能仍落后于“task-specific”模型。针对该问题，这篇文章探索了一种用于检索增强生成（RAG）的通用微调方法。结构如下图：
 
@@ -83,14 +29,17 @@
 
 由检索器 $p_{\eta}(z|x)$ 和 Seq-2-Seq 生成器 $p_{\theta}(y_{i}|x,z,y_{1:i-1})$ 构成。
 
-** [#B] [[https://arxiv.org/abs/2005.14165][Language Models are Few-Shot Learners]] :nips:
+*** [#A] [[https://arxiv.org/abs/2210.03629][ReAct: Synergizing Reasoning and Acting in Language Models]] :iclr:
 
-1. 提出了 LLM 的 In-Context-Learning ，在 inference 阶段把在训练阶段学到的技能（模式识别等）应用于目标任务。
-2. LLM 的 In-Context-Learning 能力随模型增大而增强
+提出了一种基于提示词的新学习范式，协同语言模型中的推理和行动来解决一般任务。其基本思路是扩充智能代理（Agent）的动作空间（action space）： $\hat{\mathcal{A}}=\mathcal{A}\cup\mathcal{L}$ ，其中 $\mathcal{L}$ 是语言空间。语言空间中的一个动作 $\hat{a}_t\in\mathcal{L}$ 表示一步“推理”或者“思考”，因此不会影响外部环境，也不会触发外部观察的反馈（observation feedback）。它们的主要作用在于根据当前上下文 $C_{t}$ 来推理出有用的信息，并更新上下文 $c_{t+1}=(c_t,\hat{a}_t)$ 以支持下一步的动作或推理。
 
-第一次听到 In-Context-Learning 时，感觉挺疑惑的，不用更新模型参数，只需提供一些样例，就可以让模型输出结果超越 Fine-Tuning 后的模型。
+这篇文章又刷新了我对 LLM 能力的认知边界。用 LLM 作为推理引擎的决策智能体将会成为以后的趋势。
 
-** [#B] [[https://arxiv.org/pdf/2203.15556][Training Compute-Optimal Large Language Models]] :nips:
+*** [#B] [[https://arxiv.org/abs/2201.11903][Chain-of-Thought Prompting Elicits Reasoning in Large Language Models]] :nips:
+
+提出了一种 CoT 的提示词技巧，通过在提示词中加入推理的中间过程来挖掘 LLM 的潜力。这种方法在算术推理、常识推理和符号推理等任务上比现有方法都更优异。
+
+*** [#B] [[https://arxiv.org/pdf/2203.15556][Training Compute-Optimal Large Language Models]] :nips:
 
 给出了在预算(C) 一定的情况下最优模型规模(N)和训练数据量(D)的近似扩展法则：
 
@@ -104,15 +53,58 @@
 
 直观一点，训练 LLM 的最优 Token/Param 比为：20/1 。不过最近又有很多新的研究进展。
 
-** [#A] [[https://arxiv.org/abs/2403.13249][A Unified and General Framework for Continual Learning]] :iclr:
+*** [#B] [[https://arxiv.org/abs/2203.11171][Self-Consistency Improves Chain of Thought Reasoning in Language Models]] :iclr:
 
-利用 Bregman Divergence 距离，提出了一个一般性的增量学习框架，可以统一之前的各种增量学习方法。
+这篇文章在 CoT 的基础上发现复杂推理任务通常可以有多个推理路径，这些路径的推理都可以得到结果，但答案的正确性却有一定的自洽性（self-consistency）。因此只要让 LLM 多产生一些 CoT，然后从所有生成的 CoT 中选择“自洽性”最好的答案作为结果就可以显著提升模型的推理能力。
 
-\[\mathcal{L}^{CL}=\underbrace{\mathcal{L}_{CE}(\boldsymbol{x},y)}_{\text{new task}}+\alpha\underbrace{D_{\boldsymbol{\Phi}}(h_{\boldsymbol{\theta}}(\boldsymbol{x}),\boldsymbol{z})}_{\text{output space}}+\beta\underbrace{D_{\boldsymbol{\Psi}}(\boldsymbol{\theta},\boldsymbol{\theta}_{old})}_{\text{weight space}}\]
+#+attr_org: :width 900px
+[[file:imgs/20240621191628_sc_cot.png]]
 
-非常好的文章，把以前看的很多散的增量学习方法联系了起来。
+*** [#C] [[https://arxiv.org/abs/2302.11382][A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT]]
 
-** [#B] Efficient Construction Method for Phase Diagrams Using Uncertainty Sampling
+*** [#A] [[https://lilianweng.github.io/posts/2023-06-23-agent/][LLM Powered Autonomous Agents]]
+
+非常全面的关于智能代理最近研究的总结性博文，下面是一些有意思的摘录。
+
+智能代理系统概览：
+#+attr_org: :width 1200px
+[[file:imgs/20240623164128_agent-overview.png]]
+
+人脑的记忆系统与 LLM 在中的类似对应物：
+
+#+attr_org: :width 1000px
+[[file:imgs/20240623170328_memory.png]]
+
+
+*** [#B] [[https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/][Prompt Engineering]]
+
+非常全面的关于提示工程最近研究的总结性博文。
+
+** Active Learning
+
+*** [#B] Active learning in materials science with emphasis on adaptive sampling using uncertainties for targeted design
+
+*** [#B] [[https://lilianweng.github.io/posts/2022-04-15-data-gen/][Learning with not Enough Data Part 3: Data Generation]]
+
+*** [#A] [[https://lilianweng.github.io/posts/2022-02-20-active-learning/][Learning with not Enough Data Part 2: Active Learning]]
+
+非常全面的关于深度主动学习最近研究的总结博文。
+
+*** [#A] [[https://lilianweng.github.io/posts/2021-12-05-semi-supervised/][Learning with not Enough Data Part 1: Semi-Supervised Learning]]
+
+非常全面的关于半监督学习最近研究的总结性博文。下面摘录一些有意思的知识点。
+
+这些半监督学习中用到的一些假设：
+
+- Smoothness Assumptions :: 如果特征空间相近的两个点，其对应的标签也相近。
+- Cluster Assumptions :: 特征空间有稠密区和稀疏区，稠密区的点自然形成簇，同一簇的样本具有相同的标签。
+- Low-density Separation Assumptions :: 类别之间的决策边界往往位于稀疏、低密度区域。
+- Manifold Assumptions :: 高维数据往往位于低维流形上。
+
+整篇文章介绍了四大类半监督方法：Consistency Regularization、Pseudo Labeling、Pseudo Labeling with Consistency Regularization 和 Combined with Powerful Pre-Training 。
+
+
+*** [#B] Efficient Construction Method for Phase Diagrams Using Uncertainty Sampling
 
 不确定性采样（Uncertainty Sampling）是一种主动学习（Active Learning）策略，其核心思想是从未标记的数据集中选择模型最不确定的样本来进行人工标注。这种方法优先选择对模型改进最有帮助的样本进行标注，可以高效地使用标注资源，通常使用一些启发式的不确定性度量，比如概率最低的类别、预测概率差异最大的样本或者模型输出的熵最高的样本。
 
@@ -128,17 +120,15 @@
 
 该文的创新在于用 Uncertainty Sampling 来进行不确定估计，文中用了三种不确定性采样策略。
 
-** [#B] [[https://www.nature.com/articles/s41586-023-06734-w][An autonomous laboratory for the accelerated synthesis of novel materials]] :nature:
+*** [#B] [[https://www.nature.com/articles/s41586-023-06734-w][An autonomous laboratory for the accelerated synthesis of novel materials]] :nature:
 
 利用主动学习，自动化实验室来加速材料研发。
 
-** [#B] [[https://arxiv.org/abs/1807.02811][A Tutorial on Bayesian Optimization]]
+*** [#B] [[https://www.nature.com/articles/s41524-019-0153-8][Active learning in materials science with emphasis on adaptive sampling using uncertainties for targeted design]] :nature:
 
-** [#B] [[https://www.nature.com/articles/s41524-019-0153-8][Active learning in materials science with emphasis on adaptive sampling using uncertainties for targeted design]] :nature:
 
-** [#B] Active learning in materials science with emphasis on adaptive sampling using uncertainties for targeted design
 
-** [#A] [[https://arxiv.org/abs/2202.13753][Machine learning–enabled high-entropy alloy discovery]]
+*** [#A] [[https://arxiv.org/abs/2202.13753][Machine learning–enabled high-entropy alloy discovery]]
 
 提出了一种主动学习策略在数据及其稀疏的情况下来加速材料的发现。 下图是整个方法的示意图：
 
@@ -154,4 +144,27 @@
 论文代码：https://github.com/ziyuanrao11/Machine-learning-enabled-high-entropy-alloy-discovery
 
 总结：一篇非常不错的用机器学习做材料发现的论文，结合了当前人工智能许多前沿技术，如主动学习，物理信息网络，生成模型等。
+
+** Bayesian Method
+
+*** [#A] [[https://arxiv.org/abs/1806.04854][Fast and Scalable Bayesian Deep Learning by Weight-Perturbation in Adam]]
+
+一篇信息量很大的贝叶斯深度学习的论文。其把 Natural-Gradient VI （NGVI）的梯度更新公式规约为一种 Adam-like 的梯度更新公式，这样就可以在当前 adam 代码实现中做很小的修改来实现深度网络的 uncertainty computation。不过，这种方法只能针对 Gaussian mean-field VI 。
+
+*** [#B] [[https://arxiv.org/abs/1906.02506][Practical Deep Learning with Bayesian Principles]] :nips:
+
+这篇文章证实 naturalgradient forvariational inference(NGVI) 可以实际有效的用于训练深度神经网络。其主要贡献在于发现了 SGD 和 NGVI 两者的梯度更新公式很相似，然后可以把在深度神经网络的优化技巧，比如 batch normalisation（BN）、data augmentation (DA)、learning rate schedule、momentum and initialisation，迁移到 NGVI 的训练上来。这种 Variational Online Gauss-Newton (VOGN) 方法在保证一定可扩展的基础上同时保留了贝叶斯原则的很多优点。
+
+*** [#B] [[https://arxiv.org/abs/1807.02811][A Tutorial on Bayesian Optimization]]
+
+
+** Continual Learning
+
+*** [#A] [[https://arxiv.org/abs/2403.13249][A Unified and General Framework for Continual Learning]] :iclr:
+
+利用 Bregman Divergence 距离，提出了一个一般性的增量学习框架，可以统一之前的各种增量学习方法。
+
+\[\mathcal{L}^{CL}=\underbrace{\mathcal{L}_{CE}(\boldsymbol{x},y)}_{\text{new task}}+\alpha\underbrace{D_{\boldsymbol{\Phi}}(h_{\boldsymbol{\theta}}(\boldsymbol{x}),\boldsymbol{z})}_{\text{output space}}+\beta\underbrace{D_{\boldsymbol{\Psi}}(\boldsymbol{\theta},\boldsymbol{\theta}_{old})}_{\text{weight space}}\]
+
+非常好的文章，把以前看的很多散的增量学习方法联系了起来。
 
