@@ -157,7 +157,7 @@
 
 *** [#A] Practical Variational Inference for Neural Networks
 
-论文对变分推断（VI），最小描述长度（MDL）的形式化表述非常清晰，揭示了神经网络的变分推断方法与正则化的关系，是一篇值得多读的经典。
+论文对变分推断（VI），最小描述长度（MDL）的形式化表述非常清晰。其说明了变分推断可以重新表示为 MDL loss ，也因此变分推断才首次应用与神经网络，同时揭示了神经网络的变分推断方法与正则化的关系。是一篇值得多读的经典。
 
 *** [#B] [[https://arxiv.org/abs/1506.02157][Dropout as a Bayesian Approximation: Appendix]]
 
@@ -190,4 +190,18 @@
 \[\mathcal{L}^{CL}=\underbrace{\mathcal{L}_{CE}(\boldsymbol{x},y)}_{\text{new task}}+\alpha\underbrace{D_{\boldsymbol{\Phi}}(h_{\boldsymbol{\theta}}(\boldsymbol{x}),\boldsymbol{z})}_{\text{output space}}+\beta\underbrace{D_{\boldsymbol{\Psi}}(\boldsymbol{\theta},\boldsymbol{\theta}_{old})}_{\text{weight space}}\]
 
 非常好的文章，把以前看的很多散的增量学习方法联系了起来。
+
+** Learning Theory
+
+*** Keeping Neural Networks Simple by Minimizing the Description Length of the Weights
+
+Hinton 的老文章，现在再来读，真是越来越有味道。 
+
+MDL 学习原则：对于一批数据而言，最优模型是在模型编码和模型误差编码整体长度取得最小的模型。神经网络学习中标准的“weight delay”方法就是这一原则的体现，论文中有精彩的推导。
+
+用“bits back”的论据，推导出来了权重的期望描述长度：
+
+\[G(P,Q)=\int Q(w)\log\frac{Q(w)}{P(w)}dw\]
+
+其中 P 表示权重的先验分布，Q 表示权重的后验。假设在 P 公开的情况下，发送者要把后验分布 Q 传递给接受者所需的最小描述长度。
 
