@@ -82,6 +82,10 @@
 
 ** Active Learning
 
+*** [#B] [[https://arxiv.org/abs/1703.02910][Deep Bayesian Active Learning with Image Data]]
+
+主动学习在高维数据空间中的应用仍然很困难。这篇文章把深度贝叶斯卷积网络应用到主动学习框架中，在高维的图像数据集上取得了不错的效果。
+
 *** [#A] [[https://openreview.net/forum?id=IVESH65r0Ar][A Simple Yet Powerful Deep Active Learning With Snapshots Ensembles]]
 
 简单的方法，让人惊讶的效果，全面细致的写作，非常好的一篇关于深度主动学习的论文。
