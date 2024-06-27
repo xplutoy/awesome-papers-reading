@@ -155,6 +155,10 @@
 
 ** Bayesian Method
 
+*** [#A] Practical Variational Inference for Neural Networks
+
+论文对变分推断（VI），最小描述长度（MDL）的形式化表述非常清晰，揭示了神经网络的变分推断方法与正则化的关系，是一篇值得多读的经典。
+
 *** [#B] [[https://arxiv.org/abs/1506.02157][Dropout as a Bayesian Approximation: Appendix]]
 
 *** [#A] [[https://arxiv.org/abs/1506.02142][Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning]]
