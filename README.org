@@ -9,6 +9,12 @@
 
 ** LLM
 
+*** [#B] [[https://arxiv.org/abs/2304.04370][OpenAGI: When LLM Meets Domain Experts]] :nips:
+
+提出了一个叫做 OpenAGI 的平台，通过任务分解，然后调用外部工具、模型等来完成复杂多步的任务。
+
+[[file:imgs/20240628130034_OpenAgi.png]]
+
 *** [#B] [[https://arxiv.org/abs/2005.14165][Language Models are Few-Shot Learners]] :nips:
 
 1. 提出了 LLM 的 In-Context-Learning ，在 inference 阶段把在训练阶段学到的技能（模式识别等）应用于目标任务。
