@@ -1,7 +1,6 @@
 #+title: Awesome Papers Reading
 #+date: [2024-04-14 Sun 16:40]
 #+filetags: :note:
-#+tags: nips iclr nature
 
 工作后，阅读文献的时间少了。记录一下，激励自己。
 
@@ -87,6 +86,10 @@
 非常全面的关于提示工程最近研究的总结性博文。
 
 ** Active Learning
+
+*** [#B] The power of ensembles for active learning in image classification :cvpr:
+
+论文中对 MC-Dropout 问题的一些讨论很有意思。
 
 *** [#B] [[https://arxiv.org/abs/1703.02910][Deep Bayesian Active Learning with Image Data]]
 

@@ -1,0 +1,7 @@
+#+title: Awesome Papers Reading: Calibration
+#+data: 2024-06-28 Fri
+
+* 2024
+
+** [[https://arxiv.org/abs/1706.04599][On Calibration of Modern Neural Networks]] :icml:2017:
+
