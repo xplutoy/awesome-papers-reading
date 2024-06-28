@@ -3,5 +3,9 @@
 
 * 2024
 
-** [[https://arxiv.org/abs/1706.04599][On Calibration of Modern Neural Networks]] :icml:2017:
+** [#A] [[https://arxiv.org/abs/1807.00263][Accurate Uncertainties for Deep Learning Using Calibrated Regression]] :icml:2018:
+
+** [#A] [[https://arxiv.org/abs/1706.04599][On Calibration of Modern Neural Networks]] :icml:2017:
+
+如果你准备了解这个领域，就从这篇文献开始吧。文中有对问题清晰的定义，同时还有很多有意思的发现和见解。
 

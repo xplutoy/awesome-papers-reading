@@ -1,0 +1,31 @@
+#+title: Awesome Papers Reading: Bayesian Method
+#+data: 2024-06-28 Fri
+
+* 2024
+
+** [#A] Practical Variational Inference for Neural Networks
+
+论文对变分推断（VI），最小描述长度（MDL）的形式化表述非常清晰。其说明了变分推断可以重新表示为 MDL loss ，也因此变分推断才首次应用与神经网络，同时揭示了神经网络的变分推断方法与正则化的关系。是一篇值得多读的经典。
+
+** [#B] [[https://arxiv.org/abs/1506.02157][Dropout as a Bayesian Approximation: Appendix]]
+
+** [#A] [[https://arxiv.org/abs/1506.02142][Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning]]
+
+简单的方法，坚实的理论基础。作者证明了 Dropout 深度网络的训练等价于深度高斯过程的近似贝叶斯推断。因此可以在 Dropout 上进行廉价的“不确定性”估计。具体而言，即在测试阶段，把同一个 X 多次输入训练好的 Dropout 网络，就可以得到输出 Y 的一个分布，如下图所示：
+
+#+attr_org: :width 900px
+[[file:imgs/20240626000058_mc-dropout.png]]
+
+论文中的数学比较繁琐，这篇文章 [[https://medium.com/@ciaranbench/monte-carlo-dropout-a-practical-guide-4b4dc18014b5][Monte Carlo Dropout: a practical guide]] 是对其的一个通俗解读。
+
+** [#A] [[https://arxiv.org/abs/1806.04854][Fast and Scalable Bayesian Deep Learning by Weight-Perturbation in Adam]]
+
+一篇信息量很大的贝叶斯深度学习的论文。其把 Natural-Gradient VI （NGVI）的梯度更新公式规约为一种 Adam-like 的梯度更新公式，这样就可以在当前 adam 代码实现中做很小的修改来实现深度网络的 uncertainty computation。不过，这种方法只能针对 Gaussian mean-field VI 。
+
+** [#B] [[https://arxiv.org/abs/1906.02506][Practical Deep Learning with Bayesian Principles]] :nips:
+
+这篇文章证实 naturalgradient forvariational inference(NGVI) 可以实际有效的用于训练深度神经网络。其主要贡献在于发现了 SGD 和 NGVI 两者的梯度更新公式很相似，然后可以把在深度神经网络的优化技巧，比如 batch normalisation（BN）、data augmentation (DA)、learning rate schedule、momentum and initialisation，迁移到 NGVI 的训练上来。这种 Variational Online Gauss-Newton (VOGN) 方法在保证一定可扩展的基础上同时保留了贝叶斯原则的很多优点。
+
+** [#B] [[https://arxiv.org/abs/1807.02811][A Tutorial on Bayesian Optimization]]
+
+

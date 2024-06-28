@@ -1,0 +1,17 @@
+#+title: Awesome Papers Reading
+#+date: [2024-06-29 Sat]
+
+
+* 2024
+
+** [#A] Keeping Neural Networks Simple by Minimizing the Description Length of the Weights
+
+Hinton 的老文章，现在再来读，真是越来越有味道。 
+
+MDL 学习原则：对于一批数据而言，最优模型是在模型编码和模型误差编码整体长度取得最小的模型。神经网络学习中标准的“weight delay”方法就是这一原则的体现，论文中有精彩的推导。
+
+用“bits back”的论据，推导出来了权重的期望描述长度：
+
+\[G(P,Q)=\int Q(w)\log\frac{Q(w)}{P(w)}dw\]
+
+其中 P 表示权重的先验分布，Q 表示权重的后验。假设在 P 公开的情况下，发送者要把后验分布 Q 传递给接受者所需的最小描述长度。

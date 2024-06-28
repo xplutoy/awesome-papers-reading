@@ -1,0 +1,80 @@
+#+title: Awesome Papers Reading: Active Learning
+#+data: 2024-06-28 Fri
+
+* 2024
+
+** [#B] The power of ensembles for active learning in image classification :cvpr:
+
+论文中对 MC-Dropout 问题的一些讨论很有意思。
+
+** [#B] [[https://arxiv.org/abs/1703.02910][Deep Bayesian Active Learning with Image Data]]
+
+主动学习在高维数据空间中的应用仍然很困难。这篇文章把深度贝叶斯卷积网络应用到主动学习框架中，在高维的图像数据集上取得了不错的效果。
+
+** [#A] [[https://openreview.net/forum?id=IVESH65r0Ar][A Simple Yet Powerful Deep Active Learning With Snapshots Ensembles]]
+
+简单的方法，让人惊讶的效果，全面细致的写作，非常好的一篇关于深度主动学习的论文。
+
+** [#B] Active learning in materials science with emphasis on adaptive sampling using uncertainties for targeted design
+
+** [#B] [[https://lilianweng.github.io/posts/2022-04-15-data-gen/][Learning with not Enough Data Part 3: Data Generation]]
+
+** [#A] [[https://lilianweng.github.io/posts/2022-02-20-active-learning/][Learning with not Enough Data Part 2: Active Learning]]
+
+非常全面的关于深度主动学习最近研究的总结博文。
+
+** [#A] [[https://lilianweng.github.io/posts/2021-12-05-semi-supervised/][Learning with not Enough Data Part 1: Semi-Supervised Learning]]
+
+非常全面的关于半监督学习最近研究的总结性博文。下面摘录一些有意思的知识点。
+
+这些半监督学习中用到的一些假设：
+
+- Smoothness Assumptions :: 如果特征空间相近的两个点，其对应的标签也相近。
+- Cluster Assumptions :: 特征空间有稠密区和稀疏区，稠密区的点自然形成簇，同一簇的样本具有相同的标签。
+- Low-density Separation Assumptions :: 类别之间的决策边界往往位于稀疏、低密度区域。
+- Manifold Assumptions :: 高维数据往往位于低维流形上。
+
+整篇文章介绍了四大类半监督方法：Consistency Regularization、Pseudo Labeling、Pseudo Labeling with Consistency Regularization 和 Combined with Powerful Pre-Training 。
+
+
+** [#B] Efficient Construction Method for Phase Diagrams Using Uncertainty Sampling
+
+不确定性采样（Uncertainty Sampling）是一种主动学习（Active Learning）策略，其核心思想是从未标记的数据集中选择模型最不确定的样本来进行人工标注。这种方法优先选择对模型改进最有帮助的样本进行标注，可以高效地使用标注资源，通常使用一些启发式的不确定性度量，比如概率最低的类别、预测概率差异最大的样本或者模型输出的熵最高的样本。
+
+利用 uncertainty sampling (US) 来构建相图。 整个未确定点的相图可用 $p(p|x)$ 描述，其中 x 表示相图中未确定点的位置向量，p 是相的类别。相图就可以从这个分布中描绘出来。 下图是该方法的一个示意图：
+
+#+attr_org: :width 900
+[[file:imgs/2024-04-14_17-24-12_screenshot.png]]
+
+- 初始化 :: 随机选择几个点，然后通过实验和仿真确定其相
+- 相估计 :: 利用半监督学习方法 label propagation、label spreading 来估计整个相图分布 $p(p|x)$
+- 不确定性评分 :: 利用前一步估计的分布 $p(p|x)$ ，对所有未确定的点做不确定评分
+- 验证 :: 选取不确定评分高的点进行实验，并从返步骤二再次更新相图分布，进行下一步迭代
+
+该文的创新在于用 Uncertainty Sampling 来进行不确定估计，文中用了三种不确定性采样策略。
+
+** [#B] [[https://www.nature.com/articles/s41586-023-06734-w][An autonomous laboratory for the accelerated synthesis of novel materials]] :nature:
+
+利用主动学习，自动化实验室来加速材料研发。
+
+** [#B] [[https://www.nature.com/articles/s41524-019-0153-8][Active learning in materials science with emphasis on adaptive sampling using uncertainties for targeted design]] :nature:
+
+
+
+** [#A] [[https://arxiv.org/abs/2202.13753][Machine learning–enabled high-entropy alloy discovery]]
+
+提出了一种主动学习策略在数据及其稀疏的情况下来加速材料的发现。 下图是整个方法的示意图：
+
+#+attr_org: :width 900
+[[file:imgs/2024-04-19_21-00-49_screenshot.png]]
+
+其中包括主要的三个步骤：
+
+- 定向成分生成 :: 用 WVAE 定向生成具有特定属性的合金成分，尽管只是用合金成分来训练 WVAE，但却会学到具有物理意义的隐层特征。然后通过 GMM 和 MCMC 采样去搜索大量的合金成分。
+- 物理信息测试 :: 两阶段的集成回归，并用 ranking-based policy 选择最有潜力的成分进行下一步的高通实验验证
+- 高通实验反馈 :: 验证实验得到的数据再次反馈到 Invar database 中进行下一轮实验迭代
+
+论文代码：https://github.com/ziyuanrao11/Machine-learning-enabled-high-entropy-alloy-discovery
+
+总结：一篇非常不错的用机器学习做材料发现的论文，结合了当前人工智能许多前沿技术，如主动学习，物理信息网络，生成模型等。
+

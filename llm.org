@@ -1,0 +1,83 @@
+#+title: Awesome Papers Reading: LLM
+#+data: 2024-06-28 Fri
+
+* 2024
+
+** [#B] [[https://arxiv.org/abs/2304.04370][OpenAGI: When LLM Meets Domain Experts]] :nips:
+
+提出了一个叫做 OpenAGI 的平台，通过任务分解，然后调用外部工具、模型等来完成复杂多步的任务。
+
+#+attr_org: :width 900px
+[[file:imgs/20240628130034_OpenAgi.png]]
+
+** [#B] [[https://arxiv.org/abs/2005.14165][Language Models are Few-Shot Learners]] :nips:
+
+1. 提出了 LLM 的 In-Context-Learning ，在 inference 阶段把在训练阶段学到的技能（模式识别等）应用于目标任务。
+2. LLM 的 In-Context-Learning 能力随模型增大而增强
+
+第一次听到 In-Context-Learning 时，感觉挺疑惑的，不用更新模型参数，只需提供一些样例，就可以让模型输出结果超越 Fine-Tuning 后的模型。
+
+** [#B] [[https://arxiv.org/abs/2005.11401][Retrieval-Augmentved Generation for Knowledge-Intensive NLP Tasks]] :nips:
+
+预训练模型在“知识密集型”任务上仍有很多限制，其性能仍落后于“task-specific”模型。针对该问题，这篇文章探索了一种用于检索增强生成（RAG）的通用微调方法。结构如下图：
+
+#+attr_org: :width 900px
+[[file:./imgs/20240618164121_rag.png]]
+
+整个模型概率表示如下：
+
+\[p_{\text{RAG-Token}}(y|x) \approx \prod_i^N\sum_{z\in\text{top-}k(p(\cdot|x))}p_\eta(z|x)p_\theta(y_i|x,z,y_{1:i-1})\]
+
+由检索器 $p_{\eta}(z|x)$ 和 Seq-2-Seq 生成器 $p_{\theta}(y_{i}|x,z,y_{1:i-1})$ 构成。
+
+** [#A] [[https://arxiv.org/abs/2210.03629][ReAct: Synergizing Reasoning and Acting in Language Models]] :iclr:
+
+提出了一种基于提示词的新学习范式，协同语言模型中的推理和行动来解决一般任务。其基本思路是扩充智能代理（Agent）的动作空间（action space）： $\hat{\mathcal{A}}=\mathcal{A}\cup\mathcal{L}$ ，其中 $\mathcal{L}$ 是语言空间。语言空间中的一个动作 $\hat{a}_t\in\mathcal{L}$ 表示一步“推理”或者“思考”，因此不会影响外部环境，也不会触发外部观察的反馈（observation feedback）。它们的主要作用在于根据当前上下文 $C_{t}$ 来推理出有用的信息，并更新上下文 $c_{t+1}=(c_t,\hat{a}_t)$ 以支持下一步的动作或推理。
+
+这篇文章又刷新了我对 LLM 能力的认知边界。用 LLM 作为推理引擎的决策智能体将会成为以后的趋势。
+
+** [#B] [[https://arxiv.org/abs/2201.11903][Chain-of-Thought Prompting Elicits Reasoning in Large Language Models]] :nips:
+
+提出了一种 CoT 的提示词技巧，通过在提示词中加入推理的中间过程来挖掘 LLM 的潜力。这种方法在算术推理、常识推理和符号推理等任务上比现有方法都更优异。
+
+** [#B] [[https://arxiv.org/pdf/2203.15556][Training Compute-Optimal Large Language Models]] :nips:
+
+给出了在预算(C) 一定的情况下最优模型规模(N)和训练数据量(D)的近似扩展法则：
+
+\[N_{\mathrm{opt}}\approx C^a,D_{\mathrm{opt}}\approx C^b\]
+
+其首先通过控制变量实验来获得性能与模型规模以及训练数据量的关系：
+
+\[L(N,D)=E+\frac A{N^\alpha}+\frac B{D^\beta}\]
+
+然后在通过预算 C 的约束来优化上述目标，得出最优模型规模(N)和 训练数据量(D)与预算(C)的关系。 研究思路值得认真学习。
+
+直观一点，训练 LLM 的最优 Token/Param 比为：20/1 。不过最近又有很多新的研究进展。
+
+** [#B] [[https://arxiv.org/abs/2203.11171][Self-Consistency Improves Chain of Thought Reasoning in Language Models]] :iclr:
+
+这篇文章在 CoT 的基础上发现复杂推理任务通常可以有多个推理路径，这些路径的推理都可以得到结果，但答案的正确性却有一定的自洽性（self-consistency）。因此只要让 LLM 多产生一些 CoT，然后从所有生成的 CoT 中选择“自洽性”最好的答案作为结果就可以显著提升模型的推理能力。
+
+#+attr_org: :width 900px
+[[file:imgs/20240621191628_sc_cot.png]]
+
+** [#C] [[https://arxiv.org/abs/2302.11382][A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT]]
+
+** [#A] [[https://lilianweng.github.io/posts/2023-06-23-agent/][LLM Powered Autonomous Agents]]
+
+非常全面的关于智能代理最近研究的总结性博文，下面是一些有意思的摘录。
+
+智能代理系统概览：
+#+attr_org: :width 1200px
+[[file:imgs/20240623164128_agent-overview.png]]
+
+人脑的记忆系统与 LLM 在中的类似对应物：
+
+#+attr_org: :width 1000px
+[[file:imgs/20240623170328_memory.png]]
+
+
+** [#B] [[https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/][Prompt Engineering]]
+
+非常全面的关于提示工程最近研究的总结性博文。
+
