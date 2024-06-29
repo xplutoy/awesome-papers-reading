@@ -7,7 +7,7 @@
 
 利用 Bregman Divergence 距离，提出了一个一般性的增量学习框架，可以统一之前的各种增量学习方法。
 
-\[\mathcal{L}^{CL}=\underbrace{\mathcal{L}_{CE}(\boldsymbol{x},y)}_{\text{new task}}+\alpha\underbrace{D_{\boldsymbol{\Phi}}(h_{\boldsymbol{\theta}}(\boldsymbol{x}),\boldsymbol{z})}_{\text{output space}}+\beta\underbrace{D_{\boldsymbol{\Psi}}(\boldsymbol{\theta},\boldsymbol{\theta}_{old})}_{\text{weight space}}\]
+$$\mathcal{L}^{CL}=\underbrace{\mathcal{L}_{CE}(\boldsymbol{x},y)}_{\text{new task}}+\alpha\underbrace{D_{\boldsymbol{\Phi}}(h_{\boldsymbol{\theta}}(\boldsymbol{x}),\boldsymbol{z})}_{\text{output space}}+\beta\underbrace{D_{\boldsymbol{\Psi}}(\boldsymbol{\theta},\boldsymbol{\theta}_{old})}_{\text{weight space}}$$
 
 非常好的文章，把以前看的很多散的增量学习方法联系了起来。
 
