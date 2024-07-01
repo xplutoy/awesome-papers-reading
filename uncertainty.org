@@ -3,6 +3,14 @@
 
 * 2024
 
+** [#A] [[https://openreview.net/forum?id=H1VGkIxRZ][Enhancing The Reliability of Out-of-distribution Image Detection in Neural Networks]] :iclr:2018:
+
+这篇论文在 [cite:@hendrycksBaselineDetectingMisclassified2022] 的基础上提出了新地改进。改进的思路主要基于如下发现： 通过适当的修改 softmax 的温度 T 和对输入添加适当的扰动：  $\tilde{\boldsymbol{x}}=\boldsymbol{x}-\varepsilon\mathrm{sign}(-\nabla_{\boldsymbol{x}}\log S_{\hat{y}}(\boldsymbol{x};T))$ 可以使 in- 和 out-of-distribution 的图像的 softmax-score 的分布更加分离。论文写作清晰，内容充实，值得多读。
+
+** [#B] [[https://arxiv.org/abs/1610.02136][A Baseline for Detecting Misclassified and Out-of-Distribution Examples in Neural Networks]] :iclr:2017:
+
+这篇文献发现了这样一个现象：虽然 softmax 输出经常产生过高置信度的预测，但错误样本或OoD样本的预测结果，仍然会倾向于给出相对于正确样本较低的预测概率。基于此，统计 softmax 输出就可以检测异常样本和错误分类样本。
+
 ** [#A] [[https://arxiv.org/abs/1802.10501][Predictive Uncertainty Estimation via Prior Networks]] :2018:nips:
 
 在贝叶斯框架中，分布不确定性，即由于测试数据和训练数据的分布不匹配而产生的不确定性（OOD问题），被认为是模型不确定性的一部分。在这项工作中，分布不确定性被单独识别出来，用先验网络对其进行显式建模，并与数据不确定性和模型不确定性统一在一个可解释的概率框架下。
@@ -15,7 +23,7 @@ $$\underbrace{\mathcal{I}[y,\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D}]}_{Dis
 
 或者微分熵：
 
-$$\mathcal{H}[\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D})]=-\int_{\mathcal{S}^{K-1}}\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D})\ln(\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D}))d\boldsymbol{\mu}$$
+$$\mathcal{H}[\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D})]=-\int\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D})\ln(\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D}))d\boldsymbol{\mu}$$
 
 实验结果显示，DPN 的微分熵对 OOD 的检测最有效。
 
