@@ -3,6 +3,22 @@
 
 * 2024
 
+** [#A] [[https://arxiv.org/abs/1711.09325][Training Confidence-calibrated Classifiers for Detecting Out-of-Distribution Samples]] :iclr:2018:
+
+有意思的两点：
+
+- CONFIDENT CLASSIFIER FOR OUT-OF-DISTRIBUTION
+
+$$\min_\theta\mathbb{E}_{P_{\mathrm{in}}(\widehat{\mathbf{x}},\widehat{y})}\Big[-\log P_\theta\left(y=\widehat{y}|\widehat{\mathbf{x}}\right)\Big]+\beta\mathbb{E}_{P_{\mathrm{out}}(\mathbf{x})}\Big[KL\left(\mathcal{U}\left(y\right)\parallel P_\theta\left(y|\mathbf{x}\right)\right)\Big]$$
+
+- 从 in-distribution 的周围采样 out-of-distribution 样本更有效，并提出一种 GAN 的方法来生成 out-of-distribution 样本
+
+\begin{aligned}
+\min_{G}\max_{D}&\beta\underbrace{\mathbb{E}_{P_G(\mathbf{x})}\big[KL\left(\mathcal{U}\left(y\right)\parallel P_\theta\left(y|\mathbf{x}\right)\right)\big]}_{(\mathbf{a})}\\&+\underbrace{\mathbb{E}_{P_{\mathrm{in}}(\mathbf{x})}\big[\log D\left(\mathbf{x}\right)\big]+\mathbb{E}_{P_G(\mathbf{x})}\big[\log\left(1-D\left(\mathbf{x}\right)\right)\big]}_{(\mathbf{b})}
+\end{aligned}
+
+值得细读。
+
 ** [#A] [[https://openreview.net/forum?id=H1VGkIxRZ][Enhancing The Reliability of Out-of-distribution Image Detection in Neural Networks]] :iclr:2018:
 
 这篇论文在 [cite:@hendrycksBaselineDetectingMisclassified2022] 的基础上提出了新地改进。改进的思路主要基于如下发现： 通过适当的修改 softmax 的温度 T 和对输入添加适当的扰动：  $\tilde{\boldsymbol{x}}=\boldsymbol{x}-\varepsilon\mathrm{sign}(-\nabla_{\boldsymbol{x}}\log S_{\hat{y}}(\boldsymbol{x};T))$ 可以使 in- 和 out-of-distribution 的图像的 softmax-score 的分布更加分离。论文写作清晰，内容充实，值得多读。
