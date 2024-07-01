@@ -3,8 +3,3 @@
 #+filetags: :note:
 
 工作后，阅读文献的时间少了。记录一下，激励自己。
-
-* Uncertainty
-
-** [#B] Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles
-

@@ -1,0 +1,42 @@
+#+title: Awesome Papers Reading: Uncertainty
+#+data: 2024-06-28 Fri
+
+* 2024
+
+** [#A] [[https://arxiv.org/abs/1802.10501][Predictive Uncertainty Estimation via Prior Networks]] :2018:nips:
+
+在贝叶斯框架中，分布不确定性，即由于测试数据和训练数据的分布不匹配而产生的不确定性（OOD问题），被认为是模型不确定性的一部分。在这项工作中，分布不确定性被单独识别出来，用先验网络对其进行显式建模，并与数据不确定性和模型不确定性统一在一个可解释的概率框架下。
+
+$$\mathsf{P}(\omega_c|\boldsymbol{x}^*,\mathcal{D})=\int\int\underbrace{\mathsf{p}(\omega_c|\boldsymbol{\mu})}_{Data}\underbrace{\mathsf{p}(\boldsymbol{\mu}|\boldsymbol{x}^*,\boldsymbol{\theta})}_{Distributional}\underbrace{\mathsf{p}(\boldsymbol{\theta}|\mathcal{D})}_{Model}d\boldsymbol{\mu}d\boldsymbol{\theta}$$
+
+可以用 y 和 μ 之间的互信息来估计分布不确定性：
+
+$$\underbrace{\mathcal{I}[y,\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D}]}_{Distributional\mathrm{~}Uncertainty}=\underbrace{\mathcal{H}[\mathbb{E}_{\mathbf{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D})}[\mathbb{P}(y|\boldsymbol{\mu})]]}_{Total\mathrm{~}Uncertainty}-\underbrace{\mathbb{E}_{\mathbf{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D})}[\mathcal{H}[\mathbb{P}(y|\boldsymbol{\mu})]]}_{Expected\mathrm{~}Data\mathrm{~}Uncertainty}$$
+
+或者微分熵：
+
+$$\mathcal{H}[\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D})]=-\int_{\mathcal{S}^{K-1}}\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D})\ln(\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D}))d\boldsymbol{\mu}$$
+
+实验结果显示，DPN 的微分熵对 OOD 的检测最有效。
+
+信息容量极大的文章，值得反复阅读。
+
+** [#A] [[https://arxiv.org/abs/1807.00263][Accurate Uncertainties for Deep Learning Using Calibrated Regression]] :icml:2018:
+
+在算法上理解了很久，对概率知识生疏了。关键在于理解校正的充分条件：
+
+$$\frac{\sum_{t=1}^T\mathbb{I}\{y_t\leq F_t^{-1}(p)\}}T\to p\text{ for all }p\in[0,1]$$
+
+结合 [[https://github.com/AnthonyRentsch/calibrated_regression/blob/master/FinalProjectReport.ipynb][Implementing Calibrated Regression]] 上的一张图来直观的说明：
+
+#+attr_org: :width 900px
+[[file:imgs/20240629105704_calibrate.png]]
+
+也就是校验好的 Regression 的经验 CDF 与预测的 CDF 必须一致。
+
+** [#A] [[https://arxiv.org/abs/1706.04599][On Calibration of Modern Neural Networks]] :icml:2017:
+
+如果你准备了解这个领域，就从这篇文献开始吧。文中有对问题清晰的定义，同时还有很多有意思的发现和见解。
+
+** [#B] Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles
+
