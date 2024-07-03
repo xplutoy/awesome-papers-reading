@@ -3,6 +3,24 @@
 
 * 2024
 
+** [#B] A Bayesian Perspective on Training Speed and Model Selection :2020:nips:
+
+本文提出用 SGD iterates 中的信息来构建网络权重的后验分布，其构建权重后验分布的思路很有意思。
+
+有意思的启示：
+
+#+begin_quote
+A key geometric observation in this paper is that the posterior distribution over neural network parameters is close to Gaussian in the subspace spanned by the trajectory of SGD.
+#+end_quote
+
+** [#B] [[https://arxiv.org/abs/1912.02757][Deep Ensembles: A Loss Landscape Perspective]] :2020:
+
+从性能曲面的角度分析了 Deep Ensembles 方法为什么好于当前的贝叶斯方法：随机初始化参数分别训练得到的模型的多样性比在一条优化路径上的贝叶斯后验采样得到的模型更好。论文的实验很丰富，也有意思。
+
+** [#A] [[https://arxiv.org/abs/1806.01768][Evidential Deep Learning to Quantify Classification Uncertainty]] :nips:2018:
+
+非常新颖的方法，涉及很多其他知识，如 Dempster–Shafer Theory of Evidence (DST) ，Subjective Logic (SL) 等。需要再读再理解。
+
 ** [#A] [[https://arxiv.org/abs/1711.09325][Training Confidence-calibrated Classifiers for Detecting Out-of-Distribution Samples]] :iclr:2018:
 
 有意思的两点：
@@ -40,6 +58,8 @@ $$\underbrace{\mathcal{I}[y,\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D}]}_{Dis
 或者微分熵：
 
 $$\mathcal{H}[\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D})]=-\int\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D})\ln(\mathfrak{p}(\boldsymbol{\mu}|\boldsymbol{x}^*;\mathcal{D}))d\boldsymbol{\mu}$$
+
+这里的 $p(\boldsymbol{\mu}|x^{*};D)$ 是一个定义在单形上的分布。文中选用 Dirichlet 分布来表示，其是分类分布的共轭先验。
 
 实验结果显示，DPN 的微分熵对 OOD 的检测最有效。
 
