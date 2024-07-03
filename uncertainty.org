@@ -3,6 +3,27 @@
 
 * 2024
 
+** [#A] [[https://arxiv.org/abs/1703.04977][What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?]] :2017:nips:
+
+文中把不确定性分为了两类：模型不确定性（epistemic uncertainty），数据不确定性（aleatoric uncertainty）。
+
+模型不确定性一般把模型权重当作随机变量，用它的后验分布来捕获其不确定性；对于数据不确定性，可以把模型的输出当作一个分布的参数，同样用这个分布来捕获其不确定性。文中提出了一个深度贝叶斯学习框架来同时捕获这两种分布：
+
+$$[\hat{\mathbf{y}},\hat{\sigma}^2]=\mathbf{f}^{\widehat{\mathbf{W}}}(\mathbf{x}),\widehat{\mathbf W}\sim q(\mathbf W)$$
+
+另外，在不同的场景中，这两类不确定性有不同的重要性。比如在 Large data situations ，Real-time applications 场景中数据不确定性很重要；但在 Safety-critical applications ，Small datasets 场景中，模型知道自己“不知道什么”是很重要的，所以模型不确定性就更关键。
+
+非常有启发性的一篇论文。
+
+** [#B] [[https://arxiv.org/abs/2202.06985][Deep Ensembles Work, But Are They Necessary?]] :2020:nips:
+
+本论文推翻了最近 Deep Ensembles 研究的两个认知或假设：
+
+- Hypothesis: ensemble diversity is responsible for improved UQ.
+- Hypothesis: ensemble diversity is responsible for improved robustness.
+
+在实验中，如果控制单个模型的 uncertainty 和数据分布内性能（InD performance），集成后并不会获得比单个模型更好的 UQ/robustness 的提升。
+
 ** [#B] [[https://arxiv.org/abs/1902.02476][A Simple Baseline for Bayesian Uncertainty in Deep Learning]] :nips:2019:
 
 本文提出用 SGD iterates 中的信息来构建网络权重的后验分布，其构建权重后验分布的思路很有意思。
