@@ -3,11 +3,11 @@
 
 * 2024
 
-** [#B] A Bayesian Perspective on Training Speed and Model Selection :2020:nips:
+** [#B] [[https://arxiv.org/abs/1902.02476][A Simple Baseline for Bayesian Uncertainty in Deep Learning]] :nips:2019:
 
 本文提出用 SGD iterates 中的信息来构建网络权重的后验分布，其构建权重后验分布的思路很有意思。
 
-有意思的启示：
+有意思的发现：
 
 #+begin_quote
 A key geometric observation in this paper is that the posterior distribution over neural network parameters is close to Gaussian in the subspace spanned by the trajectory of SGD.
