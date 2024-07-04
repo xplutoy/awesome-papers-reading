@@ -1,6 +1,6 @@
 #+title:      Learning Theory
 #+date:       [2024-06-29 Sat 11:07]
-#+filetags:   :note:
+#+filetags:   :paper:
 #+identifier: 20240629T110750
 
 

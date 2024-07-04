@@ -1,6 +1,6 @@
 #+title:      Generative Mode
 #+date:       [2024-06-29 Sat 11:05]
-#+filetags:   :note:
+#+filetags:   :paper:
 #+identifier: 20240629T110512
 
 * 2024

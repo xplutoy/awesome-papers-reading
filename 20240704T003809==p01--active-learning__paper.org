@@ -1,6 +1,6 @@
 #+title:      Active Learning
 #+date:       [2024-07-04 Thu 00:38]
-#+filetags:   :note:
+#+filetags:   :paper:
 #+identifier: 20240704T003809
 
 * 2024

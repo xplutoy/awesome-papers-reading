@@ -3,3 +3,15 @@
 #+filetags: :note:
 
 工作后，阅读文献的时间少了。记录一下，激励自己。
+
+从 2024 开始：
+
+- [[denote:20240629T012845][p01  Bayesian Method]]
+- [[denote:20240629T110415][p01  Continual Learning]]
+- [[denote:20240629T110512][p01  Generative Mode]]
+- [[denote:20240629T110636][p01  LLM]]
+- [[denote:20240629T110750][p01  Learning Theory]]
+- [[denote:20240703T235249][p01  Uncertainty]]
+- [[denote:20240704T003809][p01  Active Learning]]
+- [[denote:20240704T225406][p01  Machine Learning]]
+

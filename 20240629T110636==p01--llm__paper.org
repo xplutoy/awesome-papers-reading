@@ -1,6 +1,6 @@
 #+title:      LLM
 #+date:       [2024-06-29 Sat 11:06]
-#+filetags:   :note:
+#+filetags:   :paper:
 #+identifier: 20240629T110636
 
 * 2024

@@ -1,6 +1,6 @@
 #+title:      Bayesian Method
 #+date:       [2024-06-29 Sat 01:28]
-#+filetags:   :note:
+#+filetags:   :paper:
 #+identifier: 20240629T012845
 
 * 2024
