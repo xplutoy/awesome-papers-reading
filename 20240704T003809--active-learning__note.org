@@ -1,7 +1,11 @@
-#+title: Awesome Papers Reading: Active Learning
-#+data: 2024-06-28 Fri
+#+title:      Active Learning
+#+date:       [2024-07-04 Thu 00:38]
+#+filetags:   :note:
+#+identifier: 20240704T003809
 
 * 2024
+
+** [#B] [[https://arxiv.org/abs/2006.09916][Bayesian active learning for production, a systematic study and a reusable library]] :2020:
 
 ** [#B] The power of ensembles for active learning in image classification :cvpr:
 

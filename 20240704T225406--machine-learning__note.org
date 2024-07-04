@@ -1,0 +1,8 @@
+#+title:      Machine Learning
+#+date:       [2024-07-04 Thu 22:54]
+#+filetags:   :note:
+#+identifier: 20240704T225406
+
+* 2024
+
+** LightGBM: A Highly Efficient Gradient Boosting Decision Tree :nips:2017:

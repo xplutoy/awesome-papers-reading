@@ -1,5 +1,7 @@
-#+title: Awesome Papers Reading
-#+date: [2024-06-29 Sat]
+#+title:      Learning Theory
+#+date:       [2024-06-29 Sat 11:07]
+#+filetags:   :note:
+#+identifier: 20240629T110750
 
 
 * 2024
