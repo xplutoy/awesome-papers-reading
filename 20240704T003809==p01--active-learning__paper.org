@@ -5,6 +5,14 @@
 
 * 2024
 
+** [#A] [[https://arxiv.org/abs/1906.08158][BatchBALD: Efficient and Diverse Batch Acquisition for Deep Bayesian Active Learning]] :nips:2019:
+
+在这篇论文中，我第一次了解到 Batch Active Learning 的问题的重要性。
+
+文中发现平凡的把 BALD 方法扩展到 Batch 场景中会选出冗余的样本，数据效率低下，因此提出 BatchBALD 方法：
+
+[[file:./imgs/20240707143300_batch_bald.png]]
+
 ** [#B] [[https://arxiv.org/abs/2006.09916][Bayesian active learning for production, a systematic study and a reusable library]] :2020:
 
 ** [#B] The power of ensembles for active learning in image classification :cvpr:
