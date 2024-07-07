@@ -5,13 +5,35 @@
 
 * 2024
 
+** [#A] [[https://proceedings.neurips.cc/paper/2007/hash/ccc0aa1b81bf81e16c676ddb977c5881-Abstract.html][Discriminative Batch Mode Active Learning]] :nips:2007:
+
+论文思路概览：
+
+- 半监督最小熵学习目标函数：
+
+  $$\sum_{i\in L}\log P(y_i|\mathbf{x}_i,\mathbf{w})+\alpha\sum_{j\in U}\sum_{y=\pm1}P(y|\mathbf{x}_j,\mathbf{w})\log P(y|\mathbf{x}_j,\mathbf{w})$$
+
+- Score 函数：
+
+  $$f(S)=\sum_{i\in L^t\cup S}\log P(y_i|\mathbf{x}_i,\mathbf{w}^{t+1})-\alpha\sum_{j\in U^t\setminus S}H(y|\mathbf{x}_j,\mathbf{w}^{t+1})$$
+
+- 近似 Score 函数：
+
+  $$f(S)=\max_{\mathbf{y}S}\sum_{i\in L^t\cup S}\log P(y_i|\mathbf{x}_i,\mathbf{w}^{t+1})-\alpha\sum_{j\in U^t\setminus S}H(y|\mathbf{x}_j,\mathbf{w}^{t+1})$$
+
+这里是从 $\mathbf{y}S$ 的所有配置中，选取使 $f(S)$ 值最大的 $S$ 。
+
+文中后面还把上述批次主动学习表述为明确的数学优化问题来解决，值得细究，这里暂且不提。
+
 ** [#A] [[https://arxiv.org/abs/1708.00489][Active Learning for Convolutional Neural Networks: A Core-Set Approach]] :iclr:2018:
 
 经典的 uncertainty 的方法一次只筛选一个样本进行标记，扩展为 Batch Sample 时又会导致数据相关性数据相关性问题，无法很好的扩展到深度学习上来。针对这个问题，论文把 Batch Active Learning 转化成 Core-Set Selection 的问题来处理，可以避免批量采样导致的 correlations 问题：
 
 $$\min_{\mathbf{s}^1:|\mathbf{s}^1|\leq b}\left|\frac1n\sum_{i\in[n]}l(\mathbf{x}_i,y_i;A_{\mathbf{s}^0\cup\mathbf{s}^1})-\frac1{|\mathbf{s}^0+\mathbf{s}^1|}\sum_{j\in\mathbf{s}^0\cup\mathbf{s}^1}l(\mathbf{x}_j,y_j;A_{\mathbf{s}^0\cup\mathbf{s}^1})\right|$$
 
-论文中把主动学习归结为 Core-Set Selection 的部分很有意思，有些地方自己还没读透，建议多读深读。
+论文中把主动学习归结为 Core-Set Selection 的部分很有意思，直观来讲，就是当前轮迭代中选出的点与之前选出来的点一起要构成所有点的一个 Core-Set 。 这需要访问所有点的标签，不可行，论文转而去优化它的一个上界，对这个上界的优化等价于一个 K-Center 问题，并不再依赖数据的标签。直观来讲，就是选择 b 个中心点，使数据点与其最近中心之间的最大距离最小化。
+
+论文中数学比较多，有些地方自己还没读透，建议深读。
 
 ** [#B] [[https://arxiv.org/abs/1905.03677][Learning Loss for Active Learning]] :cvpr:2019:
 
@@ -107,4 +129,3 @@ $$L_{\mathbf{loss}}(\hat{l^p},l^p)=\max\left(0,-\mathbb{I}(l_i,l_j)\cdot(\hat{l_
 论文代码：https://github.com/ziyuanrao11/Machine-learning-enabled-high-entropy-alloy-discovery
 
 总结：一篇非常不错的用机器学习做材料发现的论文，结合了当前人工智能许多前沿技术，如主动学习，物理信息网络，生成模型等。
-
