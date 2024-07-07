@@ -5,6 +5,24 @@
 
 * 2024
 
+** [#A] [[https://arxiv.org/abs/1708.00489][Active Learning for Convolutional Neural Networks: A Core-Set Approach]] :iclr:2018:
+
+经典的 uncertainty 的方法一次只筛选一个样本进行标记，扩展为 Batch Sample 时又会导致数据相关性数据相关性问题，无法很好的扩展到深度学习上来。针对这个问题，论文把 Batch Active Learning 转化成 Core-Set Selection 的问题来处理，可以避免批量采样导致的 correlations 问题：
+
+$$\min_{\mathbf{s}^1:|\mathbf{s}^1|\leq b}\left|\frac1n\sum_{i\in[n]}l(\mathbf{x}_i,y_i;A_{\mathbf{s}^0\cup\mathbf{s}^1})-\frac1{|\mathbf{s}^0+\mathbf{s}^1|}\sum_{j\in\mathbf{s}^0\cup\mathbf{s}^1}l(\mathbf{x}_j,y_j;A_{\mathbf{s}^0\cup\mathbf{s}^1})\right|$$
+
+论文中把主动学习归结为 Core-Set Selection 的部分很有意思，有些地方自己还没读透，建议多读深读。
+
+** [#B] [[https://arxiv.org/abs/1905.03677][Learning Loss for Active Learning]] :cvpr:2019:
+
+用一个辅助网络来同时学习一个 loss 预测网络，然后用该预测损失在 active-learing loops 中来筛选样本进行标记。
+
+[[./imgs/20240707174251_predicted_loss.png]]
+
+两个网络进行联合训练，损失函数为： $L_{\mathrm{target}}(\hat{y},y)+\lambda\cdot L_{\mathrm{loss}}(\hat{l},l)$ ，其中损失预测模型的 loss 如下：
+
+$$L_{\mathbf{loss}}(\hat{l^p},l^p)=\max\left(0,-\mathbb{I}(l_i,l_j)\cdot(\hat{l_i}-\hat{l_j})+\xi\right)$$
+
 ** [#A] [[https://arxiv.org/abs/1906.08158][BatchBALD: Efficient and Diverse Batch Acquisition for Deep Bayesian Active Learning]] :nips:2019:
 
 在这篇论文中，我第一次了解到 Batch Active Learning 的问题的重要性。
