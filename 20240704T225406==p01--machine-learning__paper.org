@@ -5,4 +5,10 @@
 
 * 2024
 
+** XGBoost: A Scalable Tree Boosting System :kdd:2016:
+
+Gradient Boosting Decision Tree （GBDT）的一个优秀工程实现，论文中对 GBDT 也讲的非常好，值得细读。另外，知乎上的这篇 [[https://zhuanlan.zhihu.com/p/83901304][深入理解XGBoost]]，也对这篇论文讲得深入浅出，推荐与论文结合着看。
+
+[[file:../../data/images/2024-07-09_01-00-00_xgboost.png]]
+
 ** LightGBM: A Highly Efficient Gradient Boosting Decision Tree :nips:2017:

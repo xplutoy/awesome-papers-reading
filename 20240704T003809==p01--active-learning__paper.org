@@ -11,15 +11,15 @@
 
 - 半监督最小熵学习目标函数：
 
-  $$\sum_{i\in L}\log P(y_i|\mathbf{x}_i,\mathbf{w})+\alpha\sum_{j\in U}\sum_{y=\pm1}P(y|\mathbf{x}_j,\mathbf{w})\log P(y|\mathbf{x}_j,\mathbf{w})$$
+$$\sum_{i\in L}\log P(y_i|\mathbf{x}_i,\mathbf{w})+\alpha\sum_{j\in U}\sum_{y=\pm1}P(y|\mathbf{x}_j,\mathbf{w})\log P(y|\mathbf{x}_j,\mathbf{w})$$
 
 - Score 函数：
 
-  $$f(S)=\sum_{i\in L^t\cup S}\log P(y_i|\mathbf{x}_i,\mathbf{w}^{t+1})-\alpha\sum_{j\in U^t\setminus S}H(y|\mathbf{x}_j,\mathbf{w}^{t+1})$$
+$$f(S)=\sum_{i\in L^t\cup S}\log P(y_i|\mathbf{x}_i,\mathbf{w}^{t+1})-\alpha\sum_{j\in U^t\setminus S}H(y|\mathbf{x}_j,\mathbf{w}^{t+1})$$
 
 - 近似 Score 函数：
 
-  $$f(S)=\max_{\mathbf{y}S}\sum_{i\in L^t\cup S}\log P(y_i|\mathbf{x}_i,\mathbf{w}^{t+1})-\alpha\sum_{j\in U^t\setminus S}H(y|\mathbf{x}_j,\mathbf{w}^{t+1})$$
+$$f(S)=\max_{\mathbf{y}S}\sum_{i\in L^t\cup S}\log P(y_i|\mathbf{x}_i,\mathbf{w}^{t+1})-\alpha\sum_{j\in U^t\setminus S}H(y|\mathbf{x}_j,\mathbf{w}^{t+1})$$
 
 这里是从 $\mathbf{y}S$ 的所有配置中，选取使 $f(S)$ 值最大的 $S$ 。
 
