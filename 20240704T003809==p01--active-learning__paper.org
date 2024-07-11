@@ -5,6 +5,10 @@
 
 * 2024
 
+** [#B] [[https://arxiv.org/abs/2107.14263][Batch Active Learning at Scale]] :nips:2021:
+
+非常简单的思路，首先对数据（用网络的倒数第二层的特征）进行层次聚类（HAC），再用 margin uncertainty sampling 采集函数选取最高 uncertainty 的样本，最后用 round-robin sampling 的策略从这些 uncertainty 最高的点对应的类中随机选取样本点。
+
 ** [#A] [[https://proceedings.neurips.cc/paper/2007/hash/ccc0aa1b81bf81e16c676ddb977c5881-Abstract.html][Discriminative Batch Mode Active Learning]] :nips:2007:
 
 论文思路概览：
@@ -39,7 +43,7 @@ $$\min_{\mathbf{s}^1:|\mathbf{s}^1|\leq b}\left|\frac1n\sum_{i\in[n]}l(\mathbf{x
 
 用一个辅助网络来同时学习一个 loss 预测网络，然后用该预测损失在 active-learing loops 中来筛选样本进行标记。
 
-[[./imgs/20240707174251_predicted_loss.png]]
+[[file:./imgs/20240707174251_predicted_loss.png]]
 
 两个网络进行联合训练，损失函数为： $L_{\mathrm{target}}(\hat{y},y)+\lambda\cdot L_{\mathrm{loss}}(\hat{l},l)$ ，其中损失预测模型的 loss 如下：
 
