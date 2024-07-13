@@ -1,0 +1,14 @@
+#+title:      Deep Learning
+#+date:       [2024-07-13 Sat 20:19]
+#+filetags:   :paper:
+#+identifier: 20240713T201940
+
+
+* 2024
+
+** A Good Learner can Teach Better: Teacher-Student Collaborative Knowledge Distillation :iclr:2024:
+
+提出了一个复杂的四阶段的基于元学习的知识蒸馏模型（涉及元学习、课程学习、强化学习）：
+
+#+attr_org: :width 900px
+[[file:./imgs/20240713202251_metadistll.png]]
