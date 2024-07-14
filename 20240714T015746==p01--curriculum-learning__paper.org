@@ -1,0 +1,19 @@
+#+title:      Curriculum learning
+#+date:       [2024-07-14 Sun 01:57]
+#+filetags:   :paper:
+#+identifier: 20240714T015746
+
+* 2024
+
+** [#A] [[https://arxiv.org/abs/2012.03107][When Do Curricula Work?]] :iclr:2021:
+
+其中有两点有意思的发现：
+
+1. 与标准训练相比，课程学习对训练只提供了微弱的帮助，并怀疑其带来的提升只是训练集动态变化带来的
+2. 在 limited training time budget 和 noisy data 的场景中，课程学习确实能提升性能
+
+这两点观察确实与课程学习在现实中的应用情况相符，其只在大语言模型的训练中广泛应用。
+
+** [#A] Curriculum learning :icml:2009:
+
+首次提出课程学习的概念。
