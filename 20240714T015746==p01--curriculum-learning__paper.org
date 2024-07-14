@@ -5,6 +5,13 @@
 
 * 2024
 
+** [#A] [[https://arxiv.org/abs/2010.13166][A Survey on Curriculum Learning]] :2021:
+
+提出 Difficulty Measurer + Training Scheduler 通用课程学习框架把已有方法分为 predefined CL 和 automatic CL 两大类。其中 automatic CL 再细分为：Self-paced Learning、Transfer Teacher、RL Teacher 和 Other Automatic CL 四类。
+
+#+attr_org: :width 900px
+[[file:./imgs/20240714185226_curriculum_overview.png]]
+
 ** [#A] [[https://arxiv.org/abs/2012.03107][When Do Curricula Work?]] :iclr:2021:
 
 其中有两点有意思的发现：
