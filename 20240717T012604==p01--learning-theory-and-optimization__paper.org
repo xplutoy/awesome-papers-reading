@@ -1,0 +1,10 @@
+#+title:      Learning Theory and Optimization
+#+date:       [2024-07-17 Wed 01:26]
+#+filetags:   :paper:
+#+identifier: 20240717T012604
+
+* 2024
+
+** [#A] [[https://openreview.net/forum?id=rkE3y85ee][Categorical Reparameterization with Gumbel-Softmax]] :iclr:2017:
+
+提出了一个可微的 Gumbel-Softmax 分布采样过程来近似代替不可微的分类分布采样。

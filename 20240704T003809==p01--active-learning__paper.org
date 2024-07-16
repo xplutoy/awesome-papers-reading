@@ -5,6 +5,10 @@
 
 * 2024
 
+** [#A] [[https://arxiv.org/abs/2106.12059][Stochastic Batch Acquisition: A Simple Baseline for Deep Active Learning]] :tmlr:2023:
+
+
+
 ** [#B] [[https://arxiv.org/abs/2107.14263][Batch Active Learning at Scale]] :nips:2021:
 
 非常简单的思路，首先对数据（用网络的倒数第二层的特征）进行层次聚类（HAC），再用 margin uncertainty sampling 采集函数选取最高 uncertainty 的样本，最后用 round-robin sampling 的策略从这些 uncertainty 最高的点对应的类中随机选取样本点。
