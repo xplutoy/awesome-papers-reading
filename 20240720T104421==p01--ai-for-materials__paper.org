@@ -1,0 +1,10 @@
+#+title:      AI for Materials
+#+date:       [2024-07-20 Sat 10:44]
+#+filetags:   :paper:
+#+identifier: 20240720T104421
+
+* 2024
+
+** [#B] Machine Learning for Material Property Prediction and Analysis :phd:2024:
+
+** [#A] Crystal Graph Convolutional Neural Networks for an Accurate and Interpretable Prediction of Material Properties :2018:

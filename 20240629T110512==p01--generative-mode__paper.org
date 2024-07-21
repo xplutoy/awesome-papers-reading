@@ -5,6 +5,14 @@
 
 * 2024
 
+** [#A] Generative Modeling by Estimating Gradients of the Data Distribution :nips:2019:
+
+** [#A] [[https://lilianweng.github.io/posts/2021-07-11-diffusion-models/][What are Diffusion Models?]] :blog:
+
+** [#A] [[https://arxiv.org/abs/2006.11239][Denoising Diffusion Probabilistic Models]] :nips:2020:
+
+** [#B] [[https://arxiv.org/abs/2402.16907][Diffusion Posterior Proximal Sampling for Image Restoration]] :2024:
+
 ** [#A] [[https://arxiv.org/abs/1611.02731][Variational Lossy Autoencoder]]
 
 解释了 VAE 和 Bits-Back 编码的联系：
@@ -17,3 +25,9 @@
 把 VAE 的优化问题转化成了设计一个有效的编码的问题，$\mathcal{H}(\text{data})$ 是编码长度的下界， 这个“有效性”可以由第二项的 KL 散度来衡量。
 
 这也可以解释为啥当 p(z|x) 是一个自回归模型时，VAE 容易退化为平凡的 AE。而在图像任务中，解码器 $p(\mathbf{x}|\mathbf{z}) = \prod_ip(\mathbf{x}_i|\mathbf{z})$ 是可因式分解的，能力不够对现实图像建模，所以会鼓励 VAE 利用额外的编码。
+
+* Score Matching
+
+** [#A] A Connection Between Score Matching  and Denoising Autoencoders
+
+** [#A] Estimation of Non-Normalized Statistical Models by Score Matching

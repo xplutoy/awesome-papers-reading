@@ -5,10 +5,16 @@
 
 * 2024
 
-** XGBoost: A Scalable Tree Boosting System :kdd:2016:
+** [#A] UMAP: Uniform Manifold  Approximation and Projection for  Dimension Reduction :2020:
+
+** [#A] Visualizing Data using t-SNE :jmlr:2008:
+
+** [#A] Stochastic Neighbor Embedding :nips:2002:
+
+** [#A] XGBoost: A Scalable Tree Boosting System :kdd:2016:
 
 Gradient Boosting Decision Tree （GBDT）的一个优秀工程实现，论文中对 GBDT 也讲的非常好，值得细读。另外，知乎上的这篇 [[https://zhuanlan.zhihu.com/p/83901304][深入理解XGBoost]]，也对这篇论文讲得深入浅出，推荐与论文结合着看。
 
 [[file:./imgs/2024-07-09_01-00-00_xgboost.png]]
 
-** LightGBM: A Highly Efficient Gradient Boosting Decision Tree :nips:2017:
+** [#A] LightGBM: A Highly Efficient Gradient Boosting Decision Tree :nips:2017:
