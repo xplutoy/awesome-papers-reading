@@ -14,4 +14,14 @@
 - [[denote:20240703T235249][p01  Uncertainty]]
 - [[denote:20240704T003809][p01  Active Learning]]
 - [[denote:20240704T225406][p01  Machine Learning]]
+- [[denote:20240713T201940][p01  Deep Learning]]
+- [[denote:20240714T015746][p01  Curriculum learning]]
+- [[denote:20240717T012604][p01  Learning Theory and Optimization]]
+- [[denote:20240720T104421][p01  AI for Materials]]
+- [[denote:20240725T114108][p01  ML for Materials]]
+
+  
+[2024-07-29 Mon]
+
+有了更好的管理文献的方法，这个仓库不再更新。
 
