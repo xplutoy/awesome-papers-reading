@@ -5,6 +5,17 @@
 
 * 2024
 
+** [#A] Generalized Out-of-Distribution Detection: A Survey :2024:
+
+** [#A] Energy-based Out-of-distribution Detection :2020:nips:
+** [#A] A Simple Unified Framework for Detecting Out-of-Distribution Samples and Adversarial Attacks :2018:nips:
+
+[cite:@leeSimpleUnifiedFramework2018] introduce a confidence score, denoted as M(x), which is defined using the Mahalanobis distance between test sample x and the closest class-conditional Gaussian distribution.
+
+$$M(\mathbf{x})=\max_c-\left(f(\mathbf{x})-\widehat{\mu}_c\right)^\top\widehat{\boldsymbol{\Sigma}}^{-1}\left(f(\mathbf{x})-\widehat{\mu}_c\right).$$
+
+This confidence score is robust for Out-of-Distribution detection as well as adversarial samples detection.
+
 ** [#A] [[https://arxiv.org/abs/1703.04977][What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?]] :2017:nips:
 
 文中把不确定性分为了两类：模型不确定性（epistemic uncertainty），数据不确定性（aleatoric uncertainty）。

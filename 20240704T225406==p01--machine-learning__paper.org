@@ -5,6 +5,8 @@
 
 * 2024
 
+** [#A] Visualizing Large-scale and High-dimensional Data :2016:
+
 ** [#A] UMAP: Uniform Manifold  Approximation and Projection for  Dimension Reduction :2020:
 
 ** [#A] Visualizing Data using t-SNE :jmlr:2008:

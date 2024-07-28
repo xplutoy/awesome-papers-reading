@@ -5,6 +5,9 @@
 
 * 2024
 
+** [#A] [[https://arxiv.org/abs/2106.09685][LoRA: Low-Rank Adaptation of Large Language Models]] :2022:iclr:
+
+** [#A] [[https://llmbook-zh.github.io/][LLMBook-zh]] :2024:book:
 
 ** [#B] [[https://arxiv.org/abs/2310.11511][Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection]] :iclr:2024:
 

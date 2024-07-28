@@ -1,0 +1,12 @@
+#+title:      ML for Materials
+#+date:       [2024-07-25 Thu 11:41]
+#+filetags:   :paper:
+#+identifier: 20240725T114108
+
+* 2024
+
+** High‐throughput preparation for alloy composition design in additive manufacturing: A comprehensive review
+
+
+
+
