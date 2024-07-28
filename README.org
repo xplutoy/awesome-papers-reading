@@ -18,8 +18,6 @@
 - [[denote:20240714T015746][p01  Curriculum learning]]
 - [[denote:20240717T012604][p01  Learning Theory and Optimization]]
 - [[denote:20240720T104421][p01  AI for Materials]]
-- [[denote:20240725T114108][p01  ML for Materials]]
-
   
 [2024-07-29 Mon]
 

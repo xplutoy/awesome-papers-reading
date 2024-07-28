@@ -5,6 +5,8 @@
 
 * 2024
 
+** [#A] High‐throughput preparation for alloy composition design in additive manufacturing: A comprehensive review
+
 ** [#B] Machine Learning for Material Property Prediction and Analysis :phd:2024:
 
 ** [#A] Crystal Graph Convolutional Neural Networks for an Accurate and Interpretable Prediction of Material Properties :2018:
